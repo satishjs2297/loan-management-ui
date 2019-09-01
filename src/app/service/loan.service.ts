@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Loan} from "../model/loan.model";
+import {Transaction} from "../model/transaction.model";
 
 @Injectable()
 export class LoanService {
@@ -16,6 +17,18 @@ export class LoanService {
   }
 
   updateLoan(loan: Loan) {
-    return this.http.put(this.baseUrl + '/' + loan.accountNumber, loan);
+    return this.http.put(this.baseUrl + loan.accountNumber, loan);
+  }
+
+  payEmi(loan: Loan) {
+    return this.http.put<Loan>(this.baseUrl + 'payEmi/' + loan.accountNumber , loan);
+  }
+
+  forceLoanClose(loan: Loan) {
+    return this.http.put<Loan>(this.baseUrl + 'forceclose/' + loan.accountNumber , loan);
+  }
+
+  printTransactions() {
+    return this.http.get<Transaction[]>(this.baseUrl + 'getAllLoanTransactions')
   }
 }

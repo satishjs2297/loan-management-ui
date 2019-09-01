@@ -1,0 +1,25 @@
+<div class="col-md-12">
+    <h2>Print Transactions</h2>
+    <div></div>
+    <button class="btn btn-success" (click)="backToHome()">Back</button>  
+    
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Transaction Id</th>
+        <th>Account Number</th>
+        <th>EMI Amount</th>
+        <th>Number Of Installments Paid</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td class="hidden">{{transaction.txnId}}</td>
+        <td>{{transaction.accountNumber}}</td>
+        <td>{{transaction.emiAmount}}</td>      
+        <td>{{transaction.numberOfInstallments}}</td>
+      </tbody>
+    </table>
+    <app-alerts></app-alerts>
+</div>
+  

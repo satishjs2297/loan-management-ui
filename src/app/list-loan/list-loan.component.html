@@ -2,6 +2,8 @@
   <h2> Loan Details</h2>
   <div></div>
   <button class="btn btn-success" (click)="addLoan()"> Add Loan</button>
+  <button class="btn btn-success" (click)="printTransactions()" style="margin-left: 20px;" > Print Transactions</button>
+
   
   <table class="table table-striped">
     <thead>
@@ -20,12 +22,12 @@
       <td>{{loan.mobileNo}}</td>      
       <td>{{loan.loanAmount}}</td>
       <td>
-        <button class="btn btn-success" (click)="addLoan()"> Show Balance</button>
-        <button class="btn btn-success" (click)="addLoan()" style="margin-left: 20px;"> Pay Emi</button>
-        <button class="btn btn-success" (click)="addLoan()" style="margin-left: 20px;" > Force Close</button>
+        <button class="btn btn-success" (click)="showBalance(loan)"> Show Balance</button>
+        <button class="btn btn-success" (click)="payEmi(loan)" style="margin-left: 20px;"> Pay Emi</button>
+        <button class="btn btn-success" (click)="forceLoanClose(loan)" style="margin-left: 20px;" > Force Close</button>
         <button class="btn btn-success" (click)="addLoan()" style="margin-left: 20px;"> Calculate EMI</button>
-        <button class="btn btn-success" (click)="addLoan()" style="margin-left: 20px;" > Print Transactions</button>
       </tr>
     </tbody>
   </table>
+  <app-alerts></app-alerts>
 </div>
